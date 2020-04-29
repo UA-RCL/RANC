@@ -1,7 +1,7 @@
 #*****************************************************************************************
 # Vivado (TM) v2018.2 (64-bit)
 #
-# truenorthnetwork.tcl: Tcl script for re-creating project 'truenorthnetwork'
+# rancnetwork.tcl: Tcl script for re-creating project 'rancnetwork'
 #
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
 #
@@ -23,7 +23,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set _xil_proj_name_ "truenorthnetwork"
+set _xil_proj_name_ "rancnetwork"
 
 # Use project name variable, if specified in the tcl shell
 if { [info exists ::user_project_name] } {
@@ -31,7 +31,7 @@ if { [info exists ::user_project_name] } {
 }
 
 variable script_file
-set script_file "truenorthnetwork.tcl"
+set script_file "rancnetwork.tcl"
 
 # Help information for this script
 proc help {} {
@@ -159,9 +159,9 @@ set files [list \
  [file normalize "${origin_dir}/src/sources/SchedulerSRAM.v"] \
  [file normalize "${origin_dir}/src/sources/ThresholdResetUnit.v"] \
  [file normalize "${origin_dir}/src/sources/TokenController.v"] \
- [file normalize "${origin_dir}/src/sources/TrueNorthNetworkGrid.v"] \
- [file normalize "${origin_dir}/src/sources/TrueNorthNetwork_S00_AXIS.v"] \
- [file normalize "${origin_dir}/src/sources/TrueNorthNetwork.v"] \
+ [file normalize "${origin_dir}/src/sources/RANCNetworkGrid.v"] \
+ [file normalize "${origin_dir}/src/sources/RANCNetwork_S00_AXIS.v"] \
+ [file normalize "${origin_dir}/src/sources/RANCNetwork.v"] \
  [file normalize "${origin_dir}/component.xml"] \
 ]
 add_files -norecurse -fileset $obj $files
@@ -178,7 +178,7 @@ set_property -name "file_type" -value "IP-XACT" -objects $file_obj
 
 # Set 'sources_1' fileset properties
 set obj [get_filesets sources_1]
-set_property -name "top" -value "TrueNorthNetwork" -objects $obj
+set_property -name "top" -value "RANCNetwork" -objects $obj
 
 # Create 'constrs_1' fileset (if not found)
 if {[string equal [get_filesets -quiet constrs_1] ""]} {

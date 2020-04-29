@@ -1,6 +1,6 @@
 import unittest
 from myhdl import Signal, intbv, Simulation, always, delay, StopSimulation
-from TrueNorthNetwork import TrueNorthNetwork, InputPorts, OutputPorts, Params
+from RANCNetwork import RANCNetwork, InputPorts, OutputPorts, Params
 
 # Helper function
 
@@ -17,7 +17,7 @@ TICK_PERIOD_NS = 1400000
 DEBUG = True
 
 
-class TestTrueNorthNetwork(unittest.TestCase):
+class TestRANCNetwork(unittest.TestCase):
 
     def runTest(self, test, grid_dimension_x, grid_dimension_y,
                 output_core_x_coordinate, output_core_y_coordinate,
@@ -70,7 +70,7 @@ class TestTrueNorthNetwork(unittest.TestCase):
         correct_file = open(correct_filepath, 'r')
 
         # Obtaining the cosimulation object
-        dut = TrueNorthNetwork(input_ports, output_ports, params)
+        dut = RANCNetwork(input_ports, output_ports, params)
 
         """Generating the clock, tick, and checking the output
         against the simulator should be the same for every test
@@ -189,7 +189,7 @@ class TestTrueNorthNetwork(unittest.TestCase):
                     break
 
                 """Iterate through every input and use AXI
-                stream to send it into TrueNorth"""
+                stream to send it into RANC"""
                 for i in range(int(num_inputs)):
                     input_ports.s00_axis_tdata.next = intbv(
                         input_file.readline().rstrip())

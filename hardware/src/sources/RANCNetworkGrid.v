@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 
 //////////////////////////////////////////////////////////////////////////////////
-// TrueNorthNetworkGrid.v
+// RANCNetworkGrid.v
 //
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
 // 
-// Generates a grid of TrueNorth cores.
+// Generates a grid of RANC cores.
 //////////////////////////////////////////////////////////////////////////////////
 
-module TrueNorthNetworkGrid #(
+module RANCNetworkGrid #(
     parameter GRID_DIMENSION_X = 5,
     parameter GRID_DIMENSION_Y = 1,
     parameter OUTPUT_CORE_X_COORDINATE = 4,

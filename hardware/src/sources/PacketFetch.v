@@ -6,7 +6,7 @@
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
 // 
-// Addresses into the AXIS FIFO to fetch packets to be sent into TrueNorth.
+// Addresses into the AXIS FIFO to fetch packets to be sent into RANC.
 //////////////////////////////////////////////////////////////////////////////////
 
 module PacketFetch #(

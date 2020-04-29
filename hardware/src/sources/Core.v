@@ -6,7 +6,7 @@
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
 // 
-// Contains all the modules for a single TrueNorth core.
+// Contains all the modules for a single RANC core.
 //////////////////////////////////////////////////////////////////////////////////
 
 module Core #(
