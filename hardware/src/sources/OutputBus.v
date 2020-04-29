@@ -6,7 +6,7 @@
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
 // 
-// Routes packets to out of the TrueNorth IP.
+// Routes packets to out of the RANC IP.
 //////////////////////////////////////////////////////////////////////////////////
 
 

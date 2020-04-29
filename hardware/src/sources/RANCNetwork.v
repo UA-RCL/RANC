@@ -1,18 +1,18 @@
 `timescale 1 ns / 1 ps
 
 //////////////////////////////////////////////////////////////////////////////////
-// TrueNorthNetwork.v
+// RANCNetwork.v
 //
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
 // 
-// A wrapper around the TrueNorthNetworkGrid which allows communication via the AXIS 
+// A wrapper around the RANCNetworkGrid which allows communication via the AXIS 
 // protocol.
 //////////////////////////////////////////////////////////////////////////////////
 
-module TrueNorthNetwork #
+module RANCNetwork #
 (
-    // TrueNorth parameters
+    // RANC parameters
     parameter GRID_DIMENSION_X = 5,
     parameter GRID_DIMENSION_Y = 1,
     parameter MAX_DIMENSION_X = 512,
@@ -35,7 +35,7 @@ module TrueNorthNetwork #
     parameter MAXIMUM_NUMBER_OF_PACKETS = 200,
     parameter C_S00_AXIS_TDATA_WIDTH = 32
 )(
-    // TrueNorth ports
+    // RANC ports
     input clk,
     input rst,
     input tick,
@@ -73,8 +73,8 @@ module TrueNorthNetwork #
 	wire [C_S00_AXIS_TDATA_WIDTH-1:0] data;
 	wire [bit_num-1:0] addr;
 	wire [bit_num-1:0] num_packets;
-	// TrueNorth wires
-	wire [PACKET_WIDTH-1:0] packet_axi_to_buffer, packet_buffer_to_truenorth;
+	// RANC wires
+	wire [PACKET_WIDTH-1:0] packet_axi_to_buffer, packet_buffer_to_RANC;
 	wire packet_axi_to_buffer_valid;
 	wire ren_to_input_buffer;
 	wire buffer_empty, buffer_full;
@@ -82,10 +82,10 @@ module TrueNorthNetwork #
 	assign packet_axi_to_buffer = data[PACKET_WIDTH-1:0];
 	
     // Instantiation of Axi Bus Interface S00_AXIS
-	TrueNorthNetwork_S00_AXIS # ( 
+	RANCNetwork_S00_AXIS # ( 
 	    .NUMBER_OF_INPUT_WORDS(MAXIMUM_NUMBER_OF_PACKETS),
 		.C_S_AXIS_TDATA_WIDTH(C_S00_AXIS_TDATA_WIDTH)
-	) TrueNorthNetwork_S00_AXIS_inst (
+	) RANCNetwork_S00_AXIS_inst (
 	    .tick(tick),
         .writes_done_out(writes_done),
         .dout(data),
@@ -116,8 +116,8 @@ module TrueNorthNetwork #
 	);
 	
 	/*
-	FIXME: There is a buffer in the TrueNorthNetwork_S00_AXIS module and this module, can we combine them so 
-	TrueNorthNetwork_S00_AXIS works with the read enable of the merge of the cores?
+	FIXME: There is a buffer in the RANCNetwork_S00_AXIS module and this module, can we combine them so 
+	RANCNetwork_S00_AXIS works with the read enable of the merge of the cores?
 	*/
 	buffer#(
         .DATA_WIDTH(PACKET_WIDTH), // FIXME: Hardcoding these for now, will fix them when router is working
@@ -128,13 +128,13 @@ module TrueNorthNetwork #
         .din(packet_axi_to_buffer),
         .din_valid(packet_axi_to_buffer_valid),
         .read_en(ren_to_input_buffer),
-        .dout(packet_buffer_to_truenorth),
+        .dout(packet_buffer_to_RANC),
         .empty(buffer_empty),
         .full(buffer_full)
     );
 
 	
-	TrueNorthNetworkGrid #(
+	RANCNetworkGrid #(
         .GRID_DIMENSION_X(GRID_DIMENSION_X),
         .GRID_DIMENSION_Y(GRID_DIMENSION_Y),
         .OUTPUT_CORE_X_COORDINATE(OUTPUT_CORE_X_COORDINATE),
@@ -156,12 +156,12 @@ module TrueNorthNetwork #
         .ROUTER_BUFFER_DEPTH(ROUTER_BUFFER_DEPTH),
         .MEMORY_FILEPATH(MEMORY_FILEPATH),
         .PACKET_WIDTH(PACKET_WIDTH)
-    ) TrueNorthNetworkGrid_inst (
+    ) RANCNetworkGrid_inst (
         .clk(clk),
         .rst(rst),
         .tick(tick),
         .input_buffer_empty(buffer_empty),
-        .packet_in(packet_buffer_to_truenorth),
+        .packet_in(packet_buffer_to_RANC),
         .packet_out(packet_out),
         .packet_out_valid(packet_out_valid),
         .ren_to_input_buffer(ren_to_input_buffer),

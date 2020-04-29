@@ -1,7 +1,7 @@
 `timescale 1 ns / 1 ps
 
 //////////////////////////////////////////////////////////////////////////////////
-// TrueNorthNetwork_S00_AXIS.v
+// RANCNetwork_S00_AXIS.v
 //
 // Created for Dr. Akoglu's Reconfigurable Computing Lab
 //  at the University of Arizona
@@ -9,7 +9,7 @@
 // An AXIS slave port for reading in packets.
 //////////////////////////////////////////////////////////////////////////////////
 
-module TrueNorthNetwork_S00_AXIS #
+module RANCNetwork_S00_AXIS #
 (
     // Users to add parameters here
     parameter NUMBER_OF_INPUT_WORDS = 8,
