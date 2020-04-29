@@ -28,10 +28,10 @@ before_script:
 
 test:
   script:
-    - cd "$CI_PROJECT_DIR/src/simulations/iverilog"
+    - cd "$CI_PROJECT_DIR/hardware/src/simulations/iverilog"
     - make
-    - cd "$CI_PROJECT_DIR/src/simulations/tests"
+    - cd "$CI_PROJECT_DIR/hardware/src/simulations/tests"
     - pytest -n auto --dist=loadfile
-    - cd "$CI_PROJECT_DIR/src/simulations/networks"
+    - cd "$CI_PROJECT_DIR/hardware/src/simulations/networks"
     - pytest -n auto --dist=loadfile
 
