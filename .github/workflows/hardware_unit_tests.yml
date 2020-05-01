@@ -39,4 +39,5 @@ jobs:
         make
     - name: Run Unit Tests with pytest
       run: |
-        pytest -n auto --dist=loadfile src/simulations/tests
+        cd src/simulations/tests
+        pytest -n auto --dist=loadfile
