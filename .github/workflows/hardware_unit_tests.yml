@@ -4,10 +4,10 @@ name: RANC Hardware Unit Tests
 on:
   push:
     branches: [ master ]
-    paths: [ 'hardware/*' ]
+    paths: [ 'hardware/*', '.github/workflows/hardware_unit_tests.yml' ]
   pull_request:
     branches: [ master ]
-    paths: [ 'hardware/*' ]
+    paths: [ 'hardware/*', '.github/workflows/hardware_unit_tests.yml' ]
 
 jobs:
   build:
@@ -29,8 +29,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        apt update
-        apt install -y iverilog git
+        sudo apt update
+        sudo apt install -y iverilog git
         python -m pip install --upgrade pip
         pip install myhdl pytest pytest-xdist
     - name: Build iverilog object files
