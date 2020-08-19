@@ -1,0 +1,11 @@
+# Compiled python modules
+*.pyc
+
+# Setuptools distributions folder
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools
+/*.egg-info
+
+# Dont actually know what this it but I KNOW I dont want it
+__pycache__
