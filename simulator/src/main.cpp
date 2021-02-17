@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
             return 0;
         }
     } else if (result.count("trace")) {
-        std::cout << "[ERROR] Trace file specified but trace verbosity is set to " << std::to_string(Config::parameters["trace_verbosity"].GetInt()) << "." << std::endl << std::endl;
+        std::cout << "[ERROR] Trace file specified but trace verbosity is not set for any component. Please enable neuron block, core controller, or scheduler trace verbosity in " << result["config"].as<std::string>() << "." << std::endl << std::endl;
         std::cout << options.help() << std::endl;
         return 0;
     }
