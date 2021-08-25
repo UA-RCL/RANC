@@ -16,7 +16,7 @@ setup(name='tealayer2',
       license='MIT',
       packages=['tealayer2'],
       install_requires=[
-          'tensorflow-gpu==2.0.0b1',
+          'tensorflow-gpu==2.5.1',
           'numpy',
           'Pillow'
           ],
