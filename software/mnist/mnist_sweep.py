@@ -109,9 +109,9 @@ def train_model(config_num, save_dest, num_epochs, num_test_samples):
     print("Test Accuracy: ", score[1])
 
     #tf.keras.models.save_model(model, save_dest + "/model_{}.hdf5".format(config_num), save_format='h5')
-    from truenorthutils.teaconversion import create_cores, create_packets, Packet
-    from truenorthutils.output_bus import OutputBus
-    from truenorthutils.serialization import save
+    from rancutils.teaconversion import create_cores, create_packets, Packet
+    from rancutils.output_bus import OutputBus
+    from rancutils.serialization import save
 
     x_test_flat = x_test.reshape((10000, 784))
     partitioned_packets = []
