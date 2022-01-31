@@ -1,0 +1,52 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  RANC: Reconfigurable Architecture for Neuromorphic
+  Computing
+message: >-
+  If you use this repository, please cite the
+  corresponding paper as follows
+type: software
+authors:
+  - given-names: Joshua
+    family-names: Mack
+    orcid: 'https://orcid.org/0000-0003-1066-5578'
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Ruben
+    family-names: Purdy
+    affiliation: 'Carnegie Mellon University, Pittsburgh, PA, USA'
+  - given-names: Kris
+    family-names: Rockowitz
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Michael
+    family-names: Inouye
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Edward
+    family-names: Richter
+    affiliation: >-
+      University of Illinois at Urbana–Champaign,
+      Urbana, IL, USA
+  - given-names: Spencer
+    family-names: Valancius
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Nirmal
+    family-names: Kumbhare
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+    orcid: 'https://orcid.org/0000-0002-1578-5504'
+  - given-names: Md Sahil
+    family-names: Hassan
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Kaitlin
+    family-names: Fair
+    affiliation: >-
+      Air Force Research Laboratory Munitions
+      Directorate (AFRL/RW), Eglin AFB, FL, USA
+  - given-names: John
+    family-names: Mixter
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
+  - given-names: Ali
+    family-names: Akoglu
+    orcid: 'https://orcid.org/0000-0001-7982-8991'
+    affiliation: 'University of Arizona, Tucson, AZ, USA'
