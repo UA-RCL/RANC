@@ -1,0 +1,42 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+#  -string -flagsOSRD
+preplace inst TickGenerator_0 -pg 1 -lvl 1 -y -270 -defaultsOSRD
+preplace inst ps8_0_axi_periph -pg 1 -lvl 6 -y 580 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 2 -y 380 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 5 -y 300 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 4 -y 330 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -y 520 -defaultsOSRD
+preplace inst RANCNetwork_0 -pg 1 -lvl 4 -y 760 -defaultsOSRD
+preplace inst AXIStreamPacketBuffer_0 -pg 1 -lvl 2 -y 70 -defaultsOSRD
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 6 -70 10 150 500 600 550 1170 600 1560 410 2190
+preplace netloc RANCNetwork_0_packet_out 1 1 4 180 200 NJ 200 NJ 200 1540
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 5 1 2210
+preplace netloc axi_smc_M00_AXI 1 4 1 1550
+preplace netloc RANCNetwork_0_packet_out_valid 1 1 4 170 630 N 630 1160 630 1530
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 5 190 480 580 540 1180 610 NJ 610 2180
+preplace netloc axi_dma_0_s2mm_introut 1 3 1 1130
+preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 1140
+preplace netloc xlconcat_0_dout 1 4 1 1570
+preplace netloc ps8_0_axi_periph_M00_AXI 1 2 5 600 300 1200J 430 NJ 430 NJ 430 2520
+preplace netloc TickGenerator_0_intr1 1 1 3 NJ -260 NJ -260 1190
+preplace netloc axi_dma_0_mm2s_introut 1 3 1 1160
+preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 1160
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 5 180J 620 NJ 620 NJ 620 NJ 620 2170
+preplace netloc AXIStreamPacketBuffer_0_m00_axis 1 2 1 590
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM1_FPD 1 5 1 2200
+preplace netloc TickGenerator_0_intr 1 1 3 140J 190 N 190 1150
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 1 1140
+preplace netloc rst_ps8_0_99M_peripheral_reset 1 1 3 160 490 570 610 1130J
+preplace netloc zynq_ultra_ps_e_0_emio_gpio_o 1 0 6 -60 -200 NJ -200 NJ -200 NJ -200 NJ -200 2170
+preplace netloc rst_ps8_0_99M_interconnect_aresetn 1 2 4 580J 290 1210J 440 NJ 440 2180
+levelinfo -pg 1 -90 40 400 960 1370 1870 2370 2540 -top -340 -bot 910
+",
+}
+{
+   da_axi4_cnt: "5",
+   da_clkrst_cnt: "7",
+   da_zynq_ultra_ps_e_cnt: "1",
+}
