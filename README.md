@@ -1,6 +1,6 @@
 # RANC
 
-RANC is a full featured environment for experimentation with neuromorphic architectures. See https://ua-rcl.github.io/RANC for more details.
+RANC is a full featured environment for experimentation with neuromorphic architectures. See https://ua-rcl.github.io/projects/ranc for more details.
 
 ## Sub-projects:
 
