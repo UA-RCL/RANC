@@ -1,0 +1,1 @@
+python mnist_sweep.py 2 . --num_epochs 10 --num_test_samples 10

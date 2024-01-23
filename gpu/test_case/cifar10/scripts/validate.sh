@@ -1,0 +1,1 @@
+python check_cifar_sweep.py ./mnist_config_1_tf_preds.txt.npy ./sim_output.txt ./mnist_config_1_correct_preds.txt.npy --simulator_offset 2

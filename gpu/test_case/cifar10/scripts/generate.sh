@@ -1,0 +1,1 @@
+python cifar_sweep.py 1 . --num_epochs 10 --num_test_samples 10000

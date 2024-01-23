@@ -1,0 +1,1 @@
+../../../simulator/build/ranc_sim  -i mnist_config_1.json -o ./sim_output.txt -c ./config.json --ticks 10002

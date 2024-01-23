@@ -1,0 +1,12 @@
+{
+    "num_neurons": 2048,
+    "num_axons": 1024,
+    "num_cores_x": 4,
+    "num_cores_y": 5,
+    "num_weights": 2,
+    "max_tick_offset": 2,
+    "neuron_block_trace_verbosity": 0,
+    "core_controller_trace_verbosity": 0,
+    "scheduler_trace_verbosity": 0,
+    "neuron_reset_type": 1
+}

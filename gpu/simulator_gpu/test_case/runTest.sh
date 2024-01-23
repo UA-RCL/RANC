@@ -1,0 +1,1 @@
+time ../build/ranc_sim -i ../data/example/input.json -o ./output.txt -c ../config.json --ticks 100 -t ./trace.txt

@@ -1,0 +1,1 @@
+python vmm.py --use_random -s ../../../simulator/build/ranc_sim -c ./config.json -h 70 -w 70 --num_axons 512
