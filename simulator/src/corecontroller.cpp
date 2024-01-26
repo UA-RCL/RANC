@@ -9,6 +9,8 @@
 #include <bitset>
 
 #include <plog/Log.h>
+#include <chrono>
+using namespace std::chrono;
 
 #include "corecontroller.h"
 #include "packet.h"
@@ -23,6 +25,7 @@ CoreController::CoreController(Core* parent, Router* router, Scheduler* schedule
 	this->csram = csram;
 
 	this->neuron_instructions = neuron_instructions;
+	
 }
 
 std::string CoreController::getSpikes() {
@@ -42,11 +45,19 @@ std::string CoreController::getSpikes() {
 }
 
 void CoreController::run() {
+	
+	
+	auto clockTotal = high_resolution_clock::now();
+	auto clock = high_resolution_clock::now();
+	
 	std::vector<int> active_connection_indices;
 	int neuron_block_trace_verbosity = Config::parameters["neuron_block_trace_verbosity"].GetInt();
 	
+	clock = high_resolution_clock::now();
 	// Fetch the current spikes from the sram
 	spikes = scheduler->getSpikes();
+	parent->schedulerTime += duration_cast<microseconds>(high_resolution_clock::now() - clock).count();
+
 
 	if (Config::parameters["core_controller_trace_verbosity"].GetInt()) {
 		std::ostringstream sstream;
@@ -67,9 +78,12 @@ void CoreController::run() {
 	// So that we only print cores whose neurons have spikes
 	bool wrote_core = false;
 
+	
 	// Iterate through each neuron
 	for (auto csram_row = csram.begin(); csram_row != csram.end(); csram_row++) {
 
+		clock = high_resolution_clock::now();
+		
 		neuron_block->current_potential = (*csram_row)->current_potential;
 		// Get active connecitons (where there is both a spike and connection)
 		active_connection_indices = activeConnectionIndices((*csram_row)->connections, spikes);
@@ -116,8 +130,13 @@ void CoreController::run() {
 			if (neuron_block_trace_verbosity == nb_trace_potentials) {
 				LOG_DEBUG_(1) << "\tNeuron spikes.";
 			}
+			
+			parent->neuronBlockTime += duration_cast<microseconds>(high_resolution_clock::now() - clock).count();
 
+			clock = high_resolution_clock::now();
 			router->receiveLocal(Packet((*csram_row)->dx, (*csram_row)->dy, (*csram_row)->destination_tick, (*csram_row)->destination_axon));
+			parent->routerTime += duration_cast<microseconds>(high_resolution_clock::now() - clock).count();
+			clock = high_resolution_clock::now();
 		}
 
 		// Send potential back to csram
@@ -126,10 +145,17 @@ void CoreController::run() {
 		if (neuron_block_trace_verbosity == nb_trace_potentials) {
 			LOG_DEBUG_(1) << "\tNeuron ends at potential: " << (*csram_row)->current_potential;
 		}
+		parent->neuronBlockTime += duration_cast<microseconds>(high_resolution_clock::now() - clock).count();
+
 	}
 
 	// Clear SRAM after processing
+	
+	clock = high_resolution_clock::now();
 	scheduler->clear();
+	parent->schedulerTime += duration_cast<microseconds>(high_resolution_clock::now() - clock).count();
+	parent->totalTime += duration_cast<microseconds>(high_resolution_clock::now() - clockTotal).count();
+
 }
 
 std::vector<int> CoreController::activeConnectionIndices(std::vector<bool> connections, std::vector<bool> spikes) {

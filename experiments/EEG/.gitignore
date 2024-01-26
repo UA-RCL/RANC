@@ -1,9 +1,0 @@
-*.png
-*.mem
-*.tmp
-*.txt
-*.bin
-python/.ipynb_checkpoints
-python/connections/*
-python/images/*
-python/logs/*

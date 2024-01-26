@@ -1,2 +1,0 @@
-# This file is automatically written.  Do not modify.
-proc gen_USERPARAMETER_bitwidth_VALUE {NUM_PACKETS } {expr $NUM_PACKETS}

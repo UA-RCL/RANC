@@ -22,6 +22,11 @@ class Component {
 
 		Router *router;
 		int x, y;
+		
+		long int schedulerTime = 0;
+		long int routerTime = 0;
+		long int neuronBlockTime = 0;
+		long int totalTime = 0;
 };
 
 #endif // COMPONENT_H
